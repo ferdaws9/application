@@ -1,0 +1,24 @@
+{% extends 'projet/baseNav.html' %}
+{% load staticfiles %}
+
+{% block titre %}Mes Projets{% endblock %}
+
+{% block content %}
+{% if list %}
+<div class="content">
+	<div><a href="{% url 'creation_projet' %}" class="button"><i class="fa fa-plus"></i>  Creér un projet  de prédiction de mildiou</a></div>
+	<h3 id="titre"><i class="fa fa-bars">Liste des Projets</i></h3>
+	<hr/>
+	<ol class="rectangle-list">
+	{% for projet in list %}
+		<li><a href="{% url 'projet' projet=projet.id %}">{{ projet }}</a></li>
+	{% endfor %}
+	</ol>
+</div>
+{% else %}
+<div class="projet">
+	<p  style="color:#8c7124;font-size:16px; font-family:tahoma;">Bienvenue, Cher utilisateur</br>Vous n'avez aucun projet pour le moment veuillez creer un</p>
+	<a href="{% url 'creation_projet' %}" class="button"><i class="fa fa-plus"></i> un projet  de prédiction de mildiou</a>
+</div>
+{% endif %}
+{% endblock %}

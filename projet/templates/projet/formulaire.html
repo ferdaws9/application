@@ -1,0 +1,33 @@
+{% extends 'projet/base.html' %}
+{% load staticfiles %}
+
+{% block titre %}Inscription{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/base1.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/formulaire.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="home">
+<div class="content">
+
+	<h3 id="titre"><i class="fa fa-address-card"></i>	Inscription</h3><hr/>
+	<form action="{% url 'valider_inscription' %}" method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ form }}
+		{% block extra_content %}{% endblock %}
+		<input id="enregistrer" name="enregistrer" type="submit" value="Enregistrer"/>
+	</form>
+
+	<button id="annuler" name="annuler">Annuler</button>
+</div>
+
+{% endblock %}
+</div>
+{% block script %}
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&&key=AIzaSyDB__9ljeKo2BWkqUv6mahxdIbDgSI8qmY"></script>
+<script type="text/javascript" src="{% static 'js/formulaire.js' %}"></script>
+
+{% endblock %}
+

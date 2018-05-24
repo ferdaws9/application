@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <script type="text/javascript" src="{% static 'js/jquery-1.8.3.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/underscore-min.js' %}"></script>
+    <style>
+        html, body, #map-canvas {
+            height: 80%;
+            margin: 0px;
+            padding: 0px
+        }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+   <script src="{% static 'js/map.js' %}"> 
+</script>
+</head>
+<body>
+
+<div id="map-canvas"></div>
+<div>
+    <button  id="create" >create an area</button>
+    <button  id="save" >save the area</button>
+    <button  id="cancel" > cancel</button>
+   </div>
+<a href="#" id="username"> </a>
+</body>
+</html>
