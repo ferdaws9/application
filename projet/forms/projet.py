@@ -6,8 +6,8 @@ import datetime
 
 class Projet(forms.Form):
 	TYPE_PROJET=(
-		("O", "Predire une surface en utilisant les fonctionnalites de openweather et les noeuds."),
-		#("N", "Predire une surface en utilisant les fonctionnalites de openweather et les noeuds."),
+		#("O", "Predire une surface en utilisant les fonctionnalites de openweather et les noeuds."),
+		("N", "Predire une surface en utilisant les fonctionnalites de openweather et les noeuds."),
 		#("P", "Superviser une plante (Presence d'un noeud au moins est obligatoire!)"),
 	)
 	nom=forms.CharField(label='Nom du projet', max_length=ModelProjet._meta.get_field('nom').max_length, required=False, widget=forms.TextInput(attrs={'placeholder': 'Nom'}))
