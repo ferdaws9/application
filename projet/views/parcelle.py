@@ -10,7 +10,7 @@ def index(request, projet):
 	if not resultat.polygone.exists():
 		utilisateur=Utilisateur.objects.get(pseudo=pseudo)
 		#photo=utilisateurPhotoProfile(utilisateur.photo)
-		projets=Projet.objects.filter(utilisateur__pseudo=pseudo, type='N',  polygone__isnull=False, noeud__isnull=False).distinct()
+		projets=Projet.objects.filter(utilisateur__pseudo=pseudo, type='N', polygone__isnull=False, noeud__isnull=True).distinct() |Projet.objects.filter(utilisateur__pseudo=pseudo, type='N',  polygone__isnull=False, noeud__isnull=False).distinct()
 		#latitude=utilisateur.position.y
 		#longitude=utilisateur.position.x
 		return render(request, 'projet/parcelle.html', {'pseudo': pseudo, 'projets': projets, 'projet': projet})
